@@ -1,0 +1,5 @@
+To get this started you will need Docker installed.
+Here is a list on commands to run;
+docker-compose build
+docker-compose up -d
+docker exec -it php composer install

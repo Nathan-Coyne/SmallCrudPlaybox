@@ -76,6 +76,7 @@ if(addProduct) {
             '<input type="text" id="newProductName" placeholder="name"/>' +
             '<input type="text" id="newProductDescription" placeholder="description"/>' +
             '<input type="number" id="newProductPrice" placeholder="amount"/>' +
+            '<input type="number" id="newProductQuantity" placeholder="quantity"/>' +
             '</form>';
         document.querySelector('#modal-placeholder-button').innerHTML = '<button type="button" id="addNewProduct" class="btn btn-primary">Save changes</button>'
         $('#addNewProduct').click(() => {
@@ -86,10 +87,11 @@ if(addProduct) {
                     'name': $('#newProductName').val(),
                     'desc':  $('#newProductDescription').val(),
                     'price': $('#newProductPrice').val(),
+                    'quantity': $('#newProductQuantity').val(),
                     'category_id': this.dataset.categoryId
                 }
             }).then(response => {
-                location.reload()
+                //location.reload()
             });
         })
     })
@@ -102,6 +104,7 @@ if(editProduct) {
             `<input type="text" id="editProductName" placeholder="name" value="${this.dataset.name}" />` +
             `<input type="text" id="editProductDescription" placeholder="description" value="${this.dataset.description}"/>` +
             `<input type="number" id="editProductPrice" placeholder="amount" value="${this.dataset.price}"/>` +
+            `<input type="number" id="editProductQuantity" placeholder="quantity" value="${this.dataset.quantity}"/>` +
             '</form>';
         document.querySelector('#modal-placeholder-button').innerHTML = '<button type="button" id="editProductBtn" class="btn btn-primary">Save changes</button>'
         $('#editProductBtn').click(() => {
@@ -112,6 +115,7 @@ if(editProduct) {
                     'name': $('#editProductName').val(),
                     'desc':  $('#editProductDescription').val(),
                     'price': $('#editProductPrice').val(),
+                    'quantity': $('#editProductQuantity').val(),
                     'id': this.dataset.id
                 }
             }).then(response => {

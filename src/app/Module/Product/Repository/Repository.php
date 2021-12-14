@@ -13,7 +13,7 @@ class Repository
         $this->product = $product;
     }
 
-    public function createProduct(string $name, float $price, string $description, int $categoryId)
+    public function createProduct(string $name, float $price, string $description, int $categoryId, int $quantity)
     {
         $this->product = new Product();
 
@@ -21,7 +21,7 @@ class Repository
         $this->product->price = $price;
         $this->product->description = $description;
         $this->product->wish_list_id = $categoryId;
-
+        $this->product->quantity = $quantity;
         $this->product->save();
     }
 
@@ -30,13 +30,14 @@ class Repository
         return $this->product->all();
     }
 
-    public function updateProduct($name, $price, $desc, $id)
+    public function updateProduct($name, $price, $desc, $id, $quantity)
     {
         $this->product = new Product();
         $this->product->where('id', $id)->update([
             'name' => $name,
             'price' => $price,
-            'description' => $desc
+            'description' => $desc,
+            'quantity' => $quantity
         ]);
     }
 

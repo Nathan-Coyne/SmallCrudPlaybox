@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function updateProduct(Request $request)
     {
         $product = new ProdRepo(new Product());
-        $product->updateProduct($request['name'], $request['price'], $request['desc'], $request['id']);
+        $product->updateProduct($request['name'], $request['price'], $request['desc'], $request['id'], $request['quantity']);
     }
 
     public function deleteProduct(Request $request)
@@ -36,6 +36,6 @@ class ProductController extends Controller
     public function createNewProduct(Request $request)
     {
         $product = new ProdRepo(new Product());
-        $product->createProduct($request['name'], $request['price'], $request['desc'], $request['category_id']);
+        $product->createProduct($request['name'], $request['price'], $request['desc'], $request['category_id'], $request['quantity']);
     }
 }
